@@ -1,0 +1,18 @@
+<div class="calendar-controls">
+  <select [(ngModel)]="selectedMonth" (change)="goToDate()">
+    <option *ngFor="let month of months" [value]="month.value">
+      {{ month.name }}
+    </option>
+  </select>
+
+  <select [(ngModel)]="selectedYear" (change)="goToDate()">
+    <option *ngFor="let year of years" [value]="year">
+      {{ year }}
+    </option>
+  </select>
+</div>
+
+<full-calendar
+  #calendar
+  [options]="calendarOptions">
+</full-calendar>
