@@ -4,6 +4,7 @@ import ma.enset.backendcalendrier.entity.Holiday;
 import ma.enset.backendcalendrier.service.HolidayService;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -21,24 +22,11 @@ public class HolidayController {
     public List<Holiday> getAllHolidays() {
         return holidayService.getAllHolidays();
     }
-
-    @PostMapping
-    public Holiday saveHoliday(@RequestBody Holiday holiday) {
-        return holidayService.saveHoliday(holiday);
+    // Example URL: /api/holidays/search?date=2024-05-01
+    @GetMapping("/search")
+    public List<Holiday> getHolidaysByDate(@RequestParam("date") String date) {
+        LocalDate localDate = LocalDate.parse(date);
+        return holidayService.getHolidaysByStartDate(localDate);
     }
 
-    // ✅ UPDATE
-    @PutMapping("/{id}")
-    public Holiday updateHoliday(
-            @PathVariable Long id,
-            @RequestBody Holiday holiday
-    ) {
-        return holidayService.updateHoliday(id, holiday);
-    }
-
-    // ✅ DELETE
-    @DeleteMapping("/{id}")
-    public void deleteHoliday(@PathVariable Long id) {
-        holidayService.deleteHoliday(id);
-    }
 }

@@ -16,7 +16,7 @@ public class Holiday {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @JsonProperty("title")
     private String title;
 
     @Column(name = "start_date")

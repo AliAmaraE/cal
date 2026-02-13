@@ -1,18 +1,28 @@
-<div class="calendar-controls">
-  <select [(ngModel)]="selectedMonth" (change)="goToDate()">
-    <option *ngFor="let month of months" [value]="month.value">
-      {{ month.name }}
-    </option>
-  </select>
+<div class="calendar-container">
+  <div class="calendar-header">
+    <div class="brand">
+      <div class="icon-box">📅</div>
+      <div class="title-text">
+        <h1>{{ months[+selectedMonth].name }} <span>{{ selectedYear }}</span></h1>
+        <p>Public Holiday Tracking System</p>
+      </div>
+    </div>
 
-  <select [(ngModel)]="selectedYear" (change)="goToDate()">
-    <option *ngFor="let year of years" [value]="year">
-      {{ year }}
-    </option>
-  </select>
+    <div class="calendar-controls">
+      <div class="legend">
+        <span class="legend-item"><span class="dot green"></span> Fixed</span>
+        <span class="legend-item"><span class="dot orange"></span> Tentative</span>
+      </div>
+      <select [(ngModel)]="selectedMonth" (change)="goToDate()">
+        <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+      </select>
+      <select [(ngModel)]="selectedYear" (change)="goToDate()">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="calendar-wrapper">
+    <full-calendar #calendar [options]="calendarOptions"></full-calendar>
+  </div>
 </div>
-
-<full-calendar
-  #calendar
-  [options]="calendarOptions">
-</full-calendar>

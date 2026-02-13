@@ -1,0 +1,85 @@
+.calendar-container {
+  padding: 15px;
+  max-width: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-controls { display: flex; align-items: center; gap: 15px; }
+
+.legend { display: flex; gap: 10px; margin-right: 10px; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: #64748b; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.green { background: #10b981; }
+.dot.orange { background: #f59e0b; }
+
+.calendar-wrapper {
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Day Box Coloring */
+::ng-deep .fc-daygrid-day {
+  background-color: #fcfcfd !important;
+}
+
+::ng-deep .fc-day-today {
+  background-color: #eff6ff !important;
+}
+
+::ng-deep .fc-event {
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+::ng-deep .fc-col-header-cell {
+  background: #f1f5f9;
+  padding: 10px 0 !important;
+}
+/* Past Days: Darker background and muted colors */
+::ng-deep .past-day {
+  background-color: #cbd5e1 !important; /* Muted grey-blue */
+  color: #94a3b8 !important;
+}
+
+::ng-deep .past-day .fc-event {
+  opacity: 0.4 !important; /* Make the green/orange look faded/past */
+  filter: grayscale(40%);
+  pointer-events: none; /* Disables clicking on past holidays if you want */
+}
+
+/* Today: Bright highlight to show "Now" */
+::ng-deep .today-day {
+  background-color: #f0f9ff !important;
+  border: 2px solid #3b82f6 !important; /* Strong blue border for "Now" */
+  position: relative;
+}
+
+/* Center the Title in the Big Square */
+::ng-deep .fc-event-main {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  color: white !important;
+}
+
+/* Ensure the holiday fills the entire cell */
+::ng-deep .fc-daygrid-day-frame {
+  min-height: 120px !important;
+}

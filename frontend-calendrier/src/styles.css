@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+/* Remove the @fullcalendar imports from here! */
+
+body {
+  background-color: #f3f4f6; 
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1f2937;
+}

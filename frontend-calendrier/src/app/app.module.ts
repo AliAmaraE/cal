@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; // 1. ADD THIS
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     BrowserModule,
     AppRoutingModule,
     FullCalendarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule // 2. ADD THIS
   ],
   providers: [],
   bootstrap: [AppComponent]
